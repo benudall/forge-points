@@ -1,14 +1,37 @@
 <table border>
 	<thead>
 		<tr>
-			<th colspan=7>
-				{{sum}} /
+			<th>
+				Total
+			</th>
+			<th colspan=2>
+			</th>
+			<th colspan=4>
+				Max
+			</th>
+		</tr>
+		<tr>
+			<th>
+				{{sum}}
+			</th>
+			<th colspan=2>
+				/
+			</th>
+			<th colspan=4>
 				<input type="number" [(ngModel)]="max" (change)="update()">
 			</th>
 		</tr>
 		<tr>
 			<th colspan=2>
-				{{remaining}} Remaining
+				Remaining
+			</th>
+			<th colspan=5>
+				Points to lock
+			</th>
+		</tr>
+		<tr>
+			<th colspan=2>
+				{{remaining}}
 			</th>
 			<th>
 				1st
@@ -33,7 +56,7 @@
 			<td>
 				<input type="number" [(ngModel)]="row.points" (change)="update()">
 			</td>
-			<td>
+			<td class="medal">
 			</td>
 			<td>
 				{{row.toFirst}}

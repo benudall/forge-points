@@ -1,9 +1,9 @@
 <table border>
 	<thead>
 		<tr>
-			<th colspan=5>
+			<th colspan=7>
 				{{sum}} /
-				<input type="number" [(ngModel)]="max">
+				<input type="number" [(ngModel)]="max" (change)="update()">
 			</th>
 		</tr>
 		<tr>
@@ -19,6 +19,13 @@
 			<th>
 				3rd
 			</th>
+			<th>
+				4th
+			</th>
+			<th>
+				5th
+			</th>
+
 		</tr>
 	</thead>
 	<tbody>
@@ -37,11 +44,17 @@
 			<td>
 				{{row.toThird}}
 			</td>
+			<td>
+				{{row.toFourth}}
+			</td>
+			<td>
+				{{row.toFifth}}
+			</td>
 		</tr>
 	</tbody>
 	<tfoot>
 		<tr>
-			<td colspan=5>
+			<td colspan=7>
 				<input type=button (click)="addRow()" value="Add row">
 			</td>
 		</tr>

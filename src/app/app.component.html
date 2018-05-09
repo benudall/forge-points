@@ -1,0 +1,49 @@
+<table border>
+	<thead>
+		<tr>
+			<th colspan=5>
+				{{sum}} /
+				<input type="number" [(ngModel)]="max">
+			</th>
+		</tr>
+		<tr>
+			<th colspan=2>
+				{{remaining}} Remaining
+			</th>
+			<th>
+				1st
+			</th>
+			<th>
+				2nd
+			</th>
+			<th>
+				3rd
+			</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr *ngFor="let row of rows">
+			<td>
+				<input type="number" [(ngModel)]="row.points" (change)="update()">
+			</td>
+			<td>
+			</td>
+			<td>
+				{{row.toFirst}}
+			</td>
+			<td>
+				{{row.toSecond}}
+			</td>
+			<td>
+				{{row.toThird}}
+			</td>
+		</tr>
+	</tbody>
+	<tfoot>
+		<tr>
+			<td colspan=5>
+				<input type=button (click)="addRow()" value="Add row">
+			</td>
+		</tr>
+	</tfoot>
+</table>

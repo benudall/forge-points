@@ -1,4 +1,4 @@
-<table border>
+<table cellspacing=0>
 	<thead>
 		<tr>
 			<th>
@@ -19,6 +19,11 @@
 			</th>
 			<th colspan=4>
 				<input type="number" [(ngModel)]="max" (change)="update()">
+			</th>
+		</tr>
+		<tr>
+			<th colspan=7>
+				<progress value="{{sum}}" max="{{max}}"></progress>
 			</th>
 		</tr>
 		<tr>
@@ -48,15 +53,14 @@
 			<th>
 				5th
 			</th>
-
 		</tr>
 	</thead>
 	<tbody>
-		<tr *ngFor="let row of rows">
+		<tr *ngFor="let row of rows; let index = index">
 			<td>
 				<input type="number" [(ngModel)]="row.points" (change)="update()">
 			</td>
-			<td class="medal">
+			<td [class.medal]="index <= 4">
 			</td>
 			<td>
 				{{row.toFirst}}
@@ -72,6 +76,17 @@
 			</td>
 			<td>
 				{{row.toFifth}}
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<input type="number" [(ngModel)]="host" (change)="update()">
+			</td>
+			<td>
+				🏠
+			</td>
+			<td colspan=5>
+				Host's Points
 			</td>
 		</tr>
 	</tbody>

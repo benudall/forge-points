@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-import { PanelService } from './panel.service';
 
 @Component({
   selector: 'app-root',
@@ -15,10 +14,12 @@ export class AppComponent {
 			toThird: 0,
 			toFourth: 0,
 			toFifth: 0
-		};
+		}
 	];
 
+	host = 0;
 	sum = 0;
+	max = 0;
 	remaining = 0;
 	first = 0;
 	second = 0;
@@ -28,7 +29,7 @@ export class AppComponent {
 	sixth = 0;
 
 	update() {
-		this.sum = this.rows.reduce((a,b) => Number(a) + Number(b.points),0);
+		this.sum = this.rows.reduce((a,b) => Number(a) + Number(b.points),0) + this.host;
 		this.remaining = this.max - this.sum;
 		this.rows = this.rows.sort((a,b)=> b.points - a.points);
 
@@ -44,31 +45,31 @@ export class AppComponent {
 
 			if(row.points == this.first){
 				row.toFirst = this.standardise((this.remaining - (row.points - this.second)) / 2);
-				row.toSecond = "?";
-				row.toThird = "?";
-				row.toFourth = "?";
-				row.toFifth = "?";
+				row.toSecond = NaN;
+				row.toThird = NaN;
+				row.toFourth = NaN;
+				row.toFifth = NaN;
 			}
 			else if(row.points == this.second){
 				row.toFirst = this.standardise(((this.first - row.points) + this.remaining) / 2);
 				row.toSecond = this.standardise((this.remaining - (row.points - this.third)) / 2);
-				row.toThird = "?";
-				row.toFourth = "?";
-				row.toFifth = "?";
+				row.toThird = NaN;
+				row.toFourth = NaN;
+				row.toFifth = NaN;
 			}
 			else if(row.points == this.third){
 				row.toFirst = this.standardise(((this.first - row.points) + this.remaining) / 2);
 				row.toSecond = this.standardise(((this.second - row.points) + this.remaining) / 2);
 				row.toThird = this.standardise((this.remaining - (row.points - this.fourth)) / 2);
-				row.toFourth = "?";
-				row.toFifth = "?";
+				row.toFourth = NaN;
+				row.toFifth = NaN;
 			}
 			else if(row.points == this.fourth){
 				row.toFirst = this.standardise(((this.first - row.points) + this.remaining) / 2);
 				row.toSecond = this.standardise(((this.second - row.points) + this.remaining) / 2);
 				row.toThird = this.standardise(((this.third - row.points) + this.remaining) / 2);
 				row.toFourth = this.standardise((this.remaining - (row.points - this.fifth)) / 2);
-				row.toFifth = "?";
+				row.toFifth = NaN;
 			}
 			else if(row.points == this.fifth){
 				row.toFirst = this.standardise(((this.first - row.points) + this.remaining) / 2);

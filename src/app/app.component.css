@@ -1,11 +1,13 @@
 table{
 	text-align: center;
-	border-collapse: collapse;
+	color: white;
 }
 td,th{
 	box-sizing: border-box;
 	min-width: 25px;
 	min-height: 25px;
+}
+td:nth-child(n+3){
 	border: 1px solid grey;
 }
 th:nth-child(1){
@@ -18,22 +20,36 @@ td:nth-child(n+3){
 .medal{
 	width: 25px;
 	height: 25px;
+}
+.medal:after{
+	color: black;
+	font-weight: bold;
+	height: 100%;
+	width: 100%;
+	box-sizing: border-box;
+	display: block;
+	border: 2px solid black;
 	border-radius: 50%;
 }
-tbody tr:nth-child(1) td:nth-child(2){
+tbody tr:nth-child(1) .medal:after{
+	content: "1";
 	background: gold;
 }
-tbody tr:nth-child(2) td:nth-child(2){
+tbody tr:nth-child(2) .medal:after{
+	content: "2";
 	background: silver;
 }
-tbody tr:nth-child(3) td:nth-child(2){
-	background: darkgoldenrod;
+tbody tr:nth-child(3) .medal:after{
+	content: "3";
+	background: #cc8833;
 }
-tbody tr:nth-child(4) td:nth-child(2){
-	background: peru;
+tbody tr:nth-child(4) .medal:after{
+	content: "4";
+	background: #aa6611;
 }
-tbody tr:nth-child(5) td:nth-child(2){
-	background: tan;
+tbody tr:nth-child(5) .medal:after{
+	content: "5";
+	background: #885500;
 }
 input{
 	box-sizing: border-box;
@@ -42,4 +58,23 @@ input{
 }
 input[type=button]{
 	width: 100%;
+	background: orange;
+	border-color: orange;
+	border-radius: 3px;
+}
+th{
+	background: maroon;
+}
+td{
+	background: saddlebrown;
+}
+progress[value]{
+	appearance: none;
+	width: 100%;
+}
+progress[value]::-webkit-progress-bar{
+    background: tan;
+}
+progress[value]::-webkit-progress-value{
+    background: linear-gradient(to bottom, limegreen, green);
 }

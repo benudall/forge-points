@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Row } from './row';
 
 @Component({
   selector: 'app-root',
@@ -7,14 +8,7 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
 	rows = [
-		{
-			points: 0,
-			toFirst: 0,
-			toSecond: 0,
-			toThird: 0,
-			toFourth: 0,
-			toFifth: 0
-		}
+		new Row()
 	];
 
 	host = 0;
@@ -45,31 +39,31 @@ export class AppComponent {
 
 			if(row.points == this.first){
 				row.toFirst = this.standardise((this.remaining - (row.points - this.second)) / 2);
-				row.toSecond = NaN;
-				row.toThird = NaN;
-				row.toFourth = NaN;
-				row.toFifth = NaN;
+				row.toSecond = "?";
+				row.toThird = "?";
+				row.toFourth = "?";
+				row.toFifth = "?";
 			}
 			else if(row.points == this.second){
 				row.toFirst = this.standardise(((this.first - row.points) + this.remaining) / 2);
 				row.toSecond = this.standardise((this.remaining - (row.points - this.third)) / 2);
-				row.toThird = NaN;
-				row.toFourth = NaN;
-				row.toFifth = NaN;
+				row.toThird = "?";
+				row.toFourth = "?";
+				row.toFifth = "?";
 			}
 			else if(row.points == this.third){
 				row.toFirst = this.standardise(((this.first - row.points) + this.remaining) / 2);
 				row.toSecond = this.standardise(((this.second - row.points) + this.remaining) / 2);
 				row.toThird = this.standardise((this.remaining - (row.points - this.fourth)) / 2);
-				row.toFourth = NaN;
-				row.toFifth = NaN;
+				row.toFourth = "?";
+				row.toFifth = "?";
 			}
 			else if(row.points == this.fourth){
 				row.toFirst = this.standardise(((this.first - row.points) + this.remaining) / 2);
 				row.toSecond = this.standardise(((this.second - row.points) + this.remaining) / 2);
 				row.toThird = this.standardise(((this.third - row.points) + this.remaining) / 2);
 				row.toFourth = this.standardise((this.remaining - (row.points - this.fifth)) / 2);
-				row.toFifth = NaN;
+				row.toFifth = "?";
 			}
 			else if(row.points == this.fifth){
 				row.toFirst = this.standardise(((this.first - row.points) + this.remaining) / 2);
@@ -96,14 +90,7 @@ export class AppComponent {
 
 	addRow(){
 		this.rows.push(
-			{
-				points: 0,
-				toFirst: 0,
-				toSecond: 0,
-				toThird: 0,
-				toFourth: 0,
-				toFifth: 0
-			}
+			new Row()
 		);
 		this.update();
 	}

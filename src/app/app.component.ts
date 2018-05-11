@@ -39,31 +39,31 @@ export class AppComponent {
 
 			if(row.points == this.first){
 				row.toFirst = this.standardise((this.remaining - (row.points - this.second)) / 2);
-				row.toSecond = "?";
-				row.toThird = "?";
-				row.toFourth = "?";
-				row.toFifth = "?";
+				row.toSecond = this.standardise((this.remaining - (row.points - this.third)) / 2);
+				row.toThird = this.standardise((this.remaining - (row.points - this.fourth)) / 2);
+				row.toFourth = this.standardise((this.remaining - (row.points - this.fifth)) / 2);
+				row.toFifth = this.standardise((this.remaining - (row.points - this.sixth)) / 2);
 			}
 			else if(row.points == this.second){
 				row.toFirst = this.standardise(((this.first - row.points) + this.remaining) / 2);
 				row.toSecond = this.standardise((this.remaining - (row.points - this.third)) / 2);
-				row.toThird = "?";
-				row.toFourth = "?";
-				row.toFifth = "?";
+				row.toThird = this.standardise((this.remaining - (row.points - this.fourth)) / 2);
+				row.toFourth = this.standardise((this.remaining - (row.points - this.fifth)) / 2);
+				row.toFifth = this.standardise((this.remaining - (row.points - this.sixth)) / 2);
 			}
 			else if(row.points == this.third){
 				row.toFirst = this.standardise(((this.first - row.points) + this.remaining) / 2);
 				row.toSecond = this.standardise(((this.second - row.points) + this.remaining) / 2);
 				row.toThird = this.standardise((this.remaining - (row.points - this.fourth)) / 2);
-				row.toFourth = "?";
-				row.toFifth = "?";
+				row.toFourth = this.standardise((this.remaining - (row.points - this.fifth)) / 2);
+				row.toFifth = this.standardise((this.remaining - (row.points - this.sixth)) / 2);
 			}
 			else if(row.points == this.fourth){
 				row.toFirst = this.standardise(((this.first - row.points) + this.remaining) / 2);
 				row.toSecond = this.standardise(((this.second - row.points) + this.remaining) / 2);
 				row.toThird = this.standardise(((this.third - row.points) + this.remaining) / 2);
 				row.toFourth = this.standardise((this.remaining - (row.points - this.fifth)) / 2);
-				row.toFifth = "?";
+				row.toFifth = this.standardise((this.remaining - (row.points - this.sixth)) / 2);
 			}
 			else if(row.points == this.fifth){
 				row.toFirst = this.standardise(((this.first - row.points) + this.remaining) / 2);

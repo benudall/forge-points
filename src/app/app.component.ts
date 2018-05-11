@@ -79,6 +79,40 @@ export class AppComponent {
 				row.toFourth = this.standardise(((this.fourth - row.points) + this.remaining) / 2);
 				row.toFifth = this.standardise(((this.fifth - row.points) + this.remaining) / 2);
 			}
+
+			row = this.validate(row);
+		}
+
+		let firstTaken = false;
+		let secondTaken = false;
+		let thirdTaken = false;
+		let fourthTaken = false;
+		let fifthTaken = false;
+
+		for(let r in this.rows){
+			let row = this.rows[r];
+			if(row.toFirst == "🔒"){firstTaken = true}
+			else if(firstTaken){row.toFirst = "⛔"}
+			if(row.toSecond == "🔒"){secondTaken = true}
+			else if(secondTaken){row.toSecond = "⛔"}
+			else if(row.toThird == "🔒"){thirdTaken = true}
+			else if(thirdTaken){row.toThird = "⛔"}
+			else if(row.toFourth == "🔒"){fourthTaken = true}
+			else if(fourthTaken){row.toFourth = "⛔"}
+			else if(row.toFifth == "🔒"){fifthTaken = true}
+			else if(fifthTaken){row.toFifth = "⛔"}
+
+
+			//if(row.toFirst == "🔒" && firstTaken){row.toFirst = "⛔"; row.toSecond = "🔒"; secondTaken = true}
+			//else if(row.toFirst == "🔒"){firstTaken = true}
+			//else if(row.toSecond == "🔒" && secondTaken){row.toSecond = "⛔"; row.toThird = "🔒"; thirdTaken = true;}
+			//else if(row.toSecond == "🔒"){secondTaken = true}
+			//else if(row.toThird == "🔒" && thirdTaken){row.toThird = "⛔"; row.toThird = "🔒"; thirdTaken = true;}
+			//else if(row.toThird == "🔒"){thirdTaken = true}
+			//else if(row.toFourth == "🔒" && fourthTaken){row.toFourth = "⛔"; row.toFourth = "🔒"; fourthTaken = true;}
+			//else if(row.toFourth == "🔒"){fourthTaken = true}
+			//else if(row.toFifth == "🔒" && fifthTaken){row.toFifth = "⛔"; row.toFifth = "🔒"; thirdFifth = true;}
+			//else if(row.toFifth == "🔒"){fifthTaken = true}
 		}
 	}
 	standardise(x){
@@ -86,6 +120,14 @@ export class AppComponent {
 		x = x <= 0 ? "🔒" : x;
 		x = x > this.remaining ? "⛔" : x;
 		return x;
+	}
+
+	validate(r){
+		let isLocked = false;
+		for(let p in r){
+			if(isLocked && r[p] == "🔒") r[p] = "-";
+			if(r[p] == "🔒") isLocked = true;
+		}
 	}
 
 	addRow(){

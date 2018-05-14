@@ -80,7 +80,7 @@ export class AppComponent {
 				row.toFifth = this.standardise(((this.fifth - row.points) + this.remaining) / 2);
 			}
 
-			row = this.validate(row);
+			//row = this.validate(row);
 		}
 
 		let firstTaken = false;
@@ -128,6 +128,7 @@ export class AppComponent {
 			if(isLocked && r[p] == "🔒") r[p] = "-";
 			if(r[p] == "🔒") isLocked = true;
 		}
+		return r;
 	}
 
 	addRow(){

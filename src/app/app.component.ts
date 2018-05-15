@@ -80,7 +80,7 @@ export class AppComponent {
 				row.toFifth = this.standardise(((this.fifth - row.points) + this.remaining) / 2);
 			}
 
-			//row = this.validate(row);
+			row = this.validate(row);
 		}
 
 		let firstTaken = false;
@@ -101,18 +101,6 @@ export class AppComponent {
 			else if(fourthTaken){row.toFourth = "⛔"}
 			else if(row.toFifth == "🔒"){fifthTaken = true}
 			else if(fifthTaken){row.toFifth = "⛔"}
-
-
-			//if(row.toFirst == "🔒" && firstTaken){row.toFirst = "⛔"; row.toSecond = "🔒"; secondTaken = true}
-			//else if(row.toFirst == "🔒"){firstTaken = true}
-			//else if(row.toSecond == "🔒" && secondTaken){row.toSecond = "⛔"; row.toThird = "🔒"; thirdTaken = true;}
-			//else if(row.toSecond == "🔒"){secondTaken = true}
-			//else if(row.toThird == "🔒" && thirdTaken){row.toThird = "⛔"; row.toThird = "🔒"; thirdTaken = true;}
-			//else if(row.toThird == "🔒"){thirdTaken = true}
-			//else if(row.toFourth == "🔒" && fourthTaken){row.toFourth = "⛔"; row.toFourth = "🔒"; fourthTaken = true;}
-			//else if(row.toFourth == "🔒"){fourthTaken = true}
-			//else if(row.toFifth == "🔒" && fifthTaken){row.toFifth = "⛔"; row.toFifth = "🔒"; thirdFifth = true;}
-			//else if(row.toFifth == "🔒"){fifthTaken = true}
 		}
 	}
 	standardise(x){
